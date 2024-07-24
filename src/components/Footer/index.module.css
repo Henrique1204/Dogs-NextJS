@@ -1,0 +1,15 @@
+.footer {
+	height: 10rem;
+	padding: 3rem 1rem 0;
+	text-align: center;
+	color: #764701;
+	background-color: #FB1;
+}
+
+.footer p {
+	margin-top: 1rem;
+}
+
+.footer img {
+	margin-inline: auto;
+}

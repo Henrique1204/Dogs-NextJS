@@ -39,6 +39,7 @@ li {
 }
 
 img {
+	height: auto;
 	max-width: 100%;
 	display: block;
 }
@@ -54,6 +55,10 @@ input {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+}
+
+.AppBody {
+	flex: 1;
 }
 
 /* Estilos padrões */

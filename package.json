@@ -4,10 +4,10 @@
 	"private": true,
 	"scripts": {
 		"dev": "next dev",
+		"dev:clean": "rm -rf .next && next dev",
 		"build": "next build",
 		"start": "next start",
-		"lint": "next lint",
-		"clear-cache": "rm -rf .next"
+		"lint": "next lint"
 	},
 	"dependencies": {
 		"react": "^18",
