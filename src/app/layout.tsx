@@ -1,19 +1,22 @@
-import type { Metadata } from "next";
-import "./globals.css";
+import type { Metadata } from 'next';
+
+import { type_second } from '@/functions/fonts';
+
+import './globals.css';
 
 export const metadata: Metadata = {
-  title: "Origamid Next",
-  description: "Criado por origamid",
+	title: 'Dogs Next',
+	description: 'Rede social para cachorros.',
 };
 
 export default function RootLayout({
-  children,
+	children,
 }: Readonly<{
-  children: React.ReactNode;
+	children: React.ReactNode;
 }>) {
-  return (
-    <html lang="pt-BR">
-      <body>{children}</body>
-    </html>
-  );
+	return (
+		<html className={type_second.variable} lang='pt-BR'>
+			<body>{children}</body>
+		</html>
+	);
 }
