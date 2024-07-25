@@ -111,3 +111,27 @@ input {
 .VictoryContainer {
 	height: initial !important;
 }
+
+.button {
+  min-width: 8rem;
+  padding: 0.8rem 1.2rem;
+  border-radius: 0.4rem;
+  border: none;
+  box-sizing: border-box;
+  font-family: var(--tipografia-um);
+  font-size: 1rem;
+  color: #764701;
+  background-color: #FB1;
+  cursor: pointer;
+  transition: 0.1s;
+}
+
+.button:hover, .button:focus {
+  box-shadow: 0 0 0 3px #FEA, 0 0 0 4px #FB1;
+  outline: none;
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: wait;
+}
