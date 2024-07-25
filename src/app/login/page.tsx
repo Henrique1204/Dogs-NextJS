@@ -1,8 +1,12 @@
+import LoginForm from '@/components/Login/LoginForm';
+
 const LoginPage = async () => {
 	return (
-		<main>
-			<h1>Login</h1>
-		</main>
+		<section className='animarEsquerda'>
+			<h1 className='titulo'>Login</h1>
+
+			<LoginForm />
+		</section>
 	);
 };
 
