@@ -1,11 +1,7 @@
 'use server';
 
-import { cookies } from 'next/headers';
-
 import { handleApiError } from '@/core/utils/apiError';
 import { PASSWORD_LOST } from '@/core/utils/api';
-
-import { getHoursInSeconds } from '@/core/utils/time';
 
 const passwordLost = async (_: any, formData: FormData) => {
 	try {

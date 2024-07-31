@@ -1,15 +1,24 @@
 import { Metadata } from 'next';
 
+import PasswordResetForm from '@/components/Login/PasswordResetForm';
+
 export const metadata: Metadata = {
 	title: 'Resetar a senha | Dogs.',
 	description: 'Resete a sua senha.',
 };
 
-const ResetarPage = async () => {
+type SearchParams = { searchParams: { key: string; login: string } };
+
+const ResetarPage = async ({ searchParams }: SearchParams) => {
 	return (
-		<main>
-			<h1>Resetar</h1>
-		</main>
+		<div className='animarEsquerda'>
+			<h1 className='titulo'>Resete a Senha</h1>
+
+			<PasswordResetForm
+				keyToken={searchParams.key}
+				login={searchParams.login}
+			/>
+		</div>
 	);
 };
 
