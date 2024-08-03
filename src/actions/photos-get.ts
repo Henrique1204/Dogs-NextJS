@@ -1,5 +1,8 @@
 'use server';
 
+import { PHOTOS_GET } from '@/core/utils/api';
+import { handleApiError } from '@/core/utils/apiError';
+
 export type Photo = {
 	id: number;
 	author: string;
@@ -12,15 +15,26 @@ export type Photo = {
 	total_comments: string;
 };
 
-const photosGet = async () => {
-	const response = await fetch(
-		'https://dogsapi.origamid.dev/json/api/photo/?_page=1&_total=6&_user=0',
-		{ next: { revalidate: 10, tags: ['photos'] } }
-	);
+const photosGet = async (
+	searchParams?: Partial<{
+		page: number;
+		total: number;
+		user: 0 | string;
+	}>
+) => {
+	try {
+		const { url: photosGetUrl } = PHOTOS_GET(searchParams);
 
-	const data = (await response.json()) as Photo[];
+		const response = await fetch(photosGetUrl, {
+			next: { revalidate: 10, tags: ['photos'] },
+		});
 
-	return data;
+		const data = (await response.json()) as Photo[];
+
+		return { data, ok: true, error: '' };
+	} catch (error: unknown) {
+		return handleApiError(error);
+	}
 };
 
 export default photosGet;
