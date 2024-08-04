@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: FotoIdPageProps) {
 const FotoIdPage = async ({ params }: FotoIdPageProps) => {
 	const { data: photoWithComments } = await photoGet(params.id);
 
-	if (!photoWithComments) return notFound;
+	if (!photoWithComments) return notFound();
 
 	return (
 		<section className='container mainContainer'>

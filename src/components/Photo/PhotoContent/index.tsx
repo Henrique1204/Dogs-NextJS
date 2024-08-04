@@ -4,6 +4,7 @@ import React from 'react';
 
 import Link from 'next/link';
 import Image from 'next/image';
+import { notFound } from 'next/navigation';
 
 import { PhotoWithComments } from '@/actions/photo-get';
 
@@ -22,6 +23,8 @@ type PhotoContent = {
 const PhotoContent = ({ data, single }: PhotoContent) => {
 	const { user } = useUser();
 	const { photo, comments } = data;
+
+	if (!photo) return notFound();
 
 	return (
 		<div className={`${styles.photo} ${single ? styles.single : ''}`}>

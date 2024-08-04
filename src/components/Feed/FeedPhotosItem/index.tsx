@@ -8,10 +8,10 @@ import { Photo } from '@/actions/photos-get';
 import styles from './index.module.css';
 
 const FeedPhotosItem = ({ photo }: { photo: Photo }) => {
-	const handleClick = () => {};
+	if (!photo) return null;
 
 	return (
-		<li className={styles.photo} onClick={handleClick}>
+		<li className={styles.photo}>
 			<Link href={`/foto/${photo.id}`} scroll={false}>
 				<Image
 					src={photo.src}
