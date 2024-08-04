@@ -14,7 +14,7 @@ const ContaPage = async () => {
 	const { data: user } = await userGet();
 
 	const { data: photos } = await photosGet({
-		user: user?.username + '2',
+		user: user?.username,
 	});
 
 	const hasPhotos = photos && photos?.length > 0;
@@ -22,7 +22,7 @@ const ContaPage = async () => {
 	return (
 		<main>
 			{hasPhotos ? (
-				<Feed photos={photos!} />
+				<Feed photos={photos!} username={user?.username} />
 			) : (
 				<div>
 					<p

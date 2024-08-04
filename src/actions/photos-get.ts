@@ -15,19 +15,24 @@ export type Photo = {
 	total_comments: string;
 };
 
+type SearchParams = Partial<{
+	page: number;
+	total: number;
+	user: 0 | string;
+}>;
+
 const photosGet = async (
-	searchParams?: Partial<{
-		page: number;
-		total: number;
-		user: 0 | string;
-	}>
+	searchParams?: SearchParams,
+	optionsFront?: RequestInit
 ) => {
 	try {
 		const { url: photosGetUrl } = PHOTOS_GET(searchParams);
 
-		const response = await fetch(photosGetUrl, {
+		const photosGetOptions = optionsFront || {
 			next: { revalidate: 10, tags: ['photos'] },
-		});
+		};
+
+		const response = await fetch(photosGetUrl, photosGetOptions);
 
 		const data = (await response.json()) as Photo[];
 
