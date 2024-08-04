@@ -4,7 +4,10 @@ import React from 'react';
 
 import photosGet, { Photo } from '@/actions/photos-get';
 
+import Loading from '@/components/Helpers/Loading';
+
 import FeedPhotos from './FeedPhotos';
+import styles from './index.module.css';
 
 type FeedProps = {
 	photos: Photo[];
@@ -81,7 +84,11 @@ const Feed = ({ photos, username = 0 }: FeedProps) => {
 	return (
 		<>
 			<FeedPhotos photos={photosFeed} />
-			{isFetchingPhotsState && <p>Carregando...</p>}
+
+			<div className={styles.loadingWrapper}>
+				{!infiniteScrollIsActive && <p>Não existem mais postagens</p>}
+				{infiniteScrollIsActive && isFetchingPhotsState && <Loading />}
+			</div>
 		</>
 	);
 };
