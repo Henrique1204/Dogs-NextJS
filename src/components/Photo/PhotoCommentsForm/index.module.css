@@ -1,0 +1,57 @@
+.form {
+	margin: 1rem;
+	display: grid;
+	grid-template-columns: 1fr auto;
+	align-items: stretch;
+}
+
+.single.form {
+	margin: 1rem 0px;
+}
+
+.textarea {
+	width: 100%;
+	padding: 0.5rem;
+	border: 1px solid #EEE;
+	border-radius: 0.2rem;
+	font-family: var(--tipografia-um);
+	font-size: 1rem;
+	background-color: #EEE;
+	display: block;
+	resize: none;
+	transition: 0.2s;
+}
+
+.textarea:focus, .textarea:hover {
+	border-color: #FB1;
+	background-color: #FFF;
+	box-shadow: 0 0 0 3px #FEA;
+	outline: none;
+}
+
+.button {
+	padding: 0 1rem;
+	border: none;
+	font-size: 1rem;
+	background-color: transparent;
+	cursor: pointer;
+	overflow: hidden;
+	outline: none;
+}
+
+.button:hover svg path, .button:focus svg path {
+	fill: #FEA;
+	stroke: #FB1;
+}
+
+.button:hover svg g, .button:focus svg g {
+	animation: latir 0.6s infinite;
+}
+
+@keyframes latir {
+	from {
+			opacity: 0;
+	} to {
+			opacity: 1;
+	}
+}

@@ -29,7 +29,7 @@ const photosGet = async (
 		const { url: photosGetUrl } = PHOTOS_GET(searchParams);
 
 		const photosGetOptions = optionsFront || {
-			next: { revalidate: 10, tags: ['photos'] },
+			next: { revalidate: 30, tags: ['photos'] },
 		};
 
 		const response = await fetch(photosGetUrl, photosGetOptions);
